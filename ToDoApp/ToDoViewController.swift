@@ -8,17 +8,22 @@
 
 import UIKit
 
-class ToDoViewController: UIViewController {
+class ToDoViewController: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet weak var `return`: UIBarButtonItem!
     @IBOutlet weak var todoTextField: UITextField!
     
-    var saveDate : UserDefaults = UserDefaults.standard
+    let saveDate : UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 // Do any additional setup after loading the view.
         todoTextField.text = saveDate.object(forKey: "todo") as? String
+        todoTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func add(_ sender: UIButton) {
