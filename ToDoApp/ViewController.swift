@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate {
-
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
